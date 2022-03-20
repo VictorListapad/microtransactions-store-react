@@ -73,15 +73,22 @@ main {
 .btn-container {
   width: 100%;
 }
-.card-content {
-  padding: 2rem;
-}
 
 .add-btn {
   background: #c31432;
   transition: all 0.3s linear;
   width: 100%;
+  cursor: pointer;
 }
 .add-btn:hover {
   background: #240b36;
+}
+
+.cart {
+  position: fixed;
+  padding: 1rem;
+  border-radius: 25%;
+  right: 2rem;
+  top: 5rem;
+  cursor: pointer;
 }
