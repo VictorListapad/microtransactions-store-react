@@ -92,3 +92,27 @@ main {
   top: 5rem;
   cursor: pointer;
 }
+
+.cart-quantity {
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.cart-quantity:hover {
+  color: red;
+}
+
+.cart-list {
+  position: fixed;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  max-width: 95vw;
+  width: 80vw;
+  transform: translate(-50%, -50%);
+}
+
+.secondary-content {
+  color: black;
+}

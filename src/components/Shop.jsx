@@ -45,6 +45,45 @@ function Shop() {
   function toggleCart() {
     setShowCart(!showCart);
   }
+
+  function incQuantity(itemId) {
+    const newOrder = order.map((item) => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      } else {
+        return item;
+      }
+    });
+    setOrder(newOrder);
+  }
+
+  function decQuantity(itemId) {
+    const newOrder = order.map((item) => {
+      if (item.id === itemId) {
+        if (item.quantity === 0) {
+          return item;
+        } else {
+          const newQuantity = item.quantity - 1;
+          return {
+            ...item,
+            quantity: newQuantity,
+          };
+        }
+      } else {
+        return item;
+      }
+    });
+    setOrder(newOrder);
+  }
+
+  function deleteFromCart(itemId) {
+    const filteredOrder = order.filter((item) => item.id !== itemId);
+    setOrder(filteredOrder);
+  }
+
   return (
     <main>
       <Cart order={order} toggleCart={toggleCart} />
@@ -53,7 +92,15 @@ function Shop() {
       ) : (
         <Preloader />
       )}
-      {showCart && <CartList order={order} />}
+      {showCart && (
+        <CartList
+          order={order}
+          incQuantity={incQuantity}
+          decQuantity={decQuantity}
+          deleteFromCart={deleteFromCart}
+          toggleCart={toggleCart}
+        />
+      )}
     </main>
   );
 }
